@@ -1,0 +1,44 @@
+{# app/Resourses/views/quran.html.twig #}
+{% extends "::layout.html.twig" %}
+{% block body %}
+    <div class="title text-center">
+        <div class="col-md-3 previous">
+            {% if id >1 and id <115 %}
+                <a class="btn btn-primary" href="{{ path('sofian_quran_app_sura',{'suraId':id-1}) }}">Sourate Précédente</a>
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <span class="h1 text-center">{{titre}}</span>
+            <span class="h2 text-center">{{translit}}</span>
+        </div>
+        <div class="col-md-3 next">
+            {% if id >0 and id <114 %}
+                <a class="btn btn-primary" href="{{ path('sofian_quran_app_sura',{'suraId':id+1}) }}">Sourate Suivante</a>
+            {% endif %}
+        </div>
+    </div>
+    <br><br><br>
+    {% javascripts '@SofianQuranAppBundle/Resources/public/js/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    
+        <div id="quranPage" class="well">
+            {% for text in suraTexts %}
+
+                <div class="aya">
+                    <span class="pull-right">{{text.index-debut}}</span>
+                    <p class="h1 text-center">{{text.text}}</p>
+
+                </div>
+                <div class="fr-trad">
+                    <p class="text-center">{{text.frTrad}}</p> 
+                </div>
+
+            {% endfor  %} 
+
+        </div>
+    
+    <div class="navigation">
+        {{ knp_pagination_render(suraTexts) }} 
+    </div>
+{% endblock %}

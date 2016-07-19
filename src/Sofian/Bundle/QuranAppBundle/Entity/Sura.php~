@@ -1,0 +1,196 @@
+<?php
+
+namespace Sofian\Bundle\QuranAppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sura
+ * @ORM\Entity(repositoryClass="Sofian\Bundle\QuranAppBundle\Entity\SuraRepository")
+ * @ORM\Table(name="sura", indexes={@ORM\Index(name="FK_sura_lieu_revelation", columns={"lieu_revelation"})})
+ */
+class Sura
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255, nullable=false)
+     */
+    private $titre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="debut", type="integer", nullable=false)
+     */
+    private $debut;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nb_ayas", type="integer", nullable=false)
+     */
+    private $nbAyas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ordre_revelation", type="integer", nullable=false)
+     */
+    private $ordreRevelation;
+
+    /**
+     * @var \LieuRevelation
+     *
+     * @ORM\ManyToOne(targetEntity="LieuRevelation")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="lieu_revelation", referencedColumnName="id")
+     * })
+     */
+    private $lieuRevelation;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="QuranText", mappedBy="Sura")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="lieu_revelation", referencedColumnName="id")
+     * })
+     */
+    private $quranTexts;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     * @return Sura
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string 
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set debut
+     *
+     * @param integer $debut
+     * @return Sura
+     */
+    public function setDebut($debut)
+    {
+        $this->debut = $debut;
+
+        return $this;
+    }
+
+    /**
+     * Get debut
+     *
+     * @return integer 
+     */
+    public function getDebut()
+    {
+        return $this->debut;
+    }
+
+    /**
+     * Set nbAyas
+     *
+     * @param integer $nbAyas
+     * @return Sura
+     */
+    public function setNbAyas($nbAyas)
+    {
+        $this->nbAyas = $nbAyas;
+
+        return $this;
+    }
+
+    /**
+     * Get nbAyas
+     *
+     * @return integer 
+     */
+    public function getNbAyas()
+    {
+        return $this->nbAyas;
+    }
+
+    /**
+     * Set ordreRevelation
+     *
+     * @param integer $ordreRevelation
+     * @return Sura
+     */
+    public function setOrdreRevelation($ordreRevelation)
+    {
+        $this->ordreRevelation = $ordreRevelation;
+
+        return $this;
+    }
+
+    /**
+     * Get ordreRevelation
+     *
+     * @return integer 
+     */
+    public function getOrdreRevelation()
+    {
+        return $this->ordreRevelation;
+    }
+
+    /**
+     * Set lieuRevelation
+     *
+     * @param \Sofian\Bundle\QuranAppBundle\Entity\LieuRevelation $lieuRevelation
+     * @return Sura
+     */
+    public function setLieuRevelation(\Sofian\Bundle\QuranAppBundle\Entity\LieuRevelation $lieuRevelation = null)
+    {
+        $this->lieuRevelation = $lieuRevelation;
+
+        return $this;
+    }
+
+    /**
+     * Get lieuRevelation
+     *
+     * @return \Sofian\Bundle\QuranAppBundle\Entity\LieuRevelation 
+     */
+    public function getLieuRevelation()
+    {
+        return $this->lieuRevelation;
+    }
+}

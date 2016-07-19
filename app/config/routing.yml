@@ -1,0 +1,4 @@
+sofian_quran_app:
+    resource: "@SofianQuranAppBundle/Resources/config/routing.yml"
+    prefix:   /
+    

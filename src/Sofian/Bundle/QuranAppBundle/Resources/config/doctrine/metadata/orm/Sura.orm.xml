@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Sura" table="sura">
+    <indexes>
+      <index name="FK_sura_lieu_revelation" columns="lieu_revelation"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="titre" type="string" column="titre" length="255" nullable="false"/>
+    <field name="debut" type="integer" column="debut" nullable="false"/>
+    <field name="nbAyas" type="integer" column="nb_ayas" nullable="false"/>
+    <field name="ordreRevelation" type="integer" column="ordre_revelation" nullable="false"/>
+    <many-to-one field="lieuRevelation" target-entity="LieuRevelation">
+      <join-columns>
+        <join-column name="lieu_revelation" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

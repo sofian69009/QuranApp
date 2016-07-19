@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="QuranText" table="quran_text">
+    <indexes>
+      <index name="FK_quran_text_sura" columns="sura"/>
+    </indexes>
+    <id name="index" type="integer" column="index">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="aya" type="integer" column="aya" nullable="false"/>
+    <field name="text" type="text" column="text" nullable="false"/>
+    <field name="frTrad" type="text" column="fr_trad" nullable="false"/>
+    <field name="enTrad" type="text" column="en_trad" nullable="false"/>
+    <field name="translitText" type="text" column="translit_text" nullable="false"/>
+    <field name="esTrad" type="text" column="es_trad" nullable="false"/>
+    <field name="itTrad" type="text" column="it_trad" nullable="false"/>
+    <field name="trTrad" type="text" column="tr_trad" nullable="false"/>
+    <many-to-one field="sura" target-entity="Sura">
+      <join-columns>
+        <join-column name="sura" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
