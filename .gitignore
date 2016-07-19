@@ -7,3 +7,5 @@
 /bin/
 /vendor/
 /web/bundles/
+.idea
+
