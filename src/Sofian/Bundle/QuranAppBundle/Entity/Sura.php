@@ -252,4 +252,13 @@ class Sura
     {
         $this->translit_titre = $translit_titre;
     }
+
+    /**
+     * @return string
+     */
+    public function getListTitle(){
+
+        $listTitle = $this->getTitre() . ' - ' . $this->getTranslitTitre();
+        return $listTitle;
+    }
 }

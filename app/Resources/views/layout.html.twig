@@ -11,6 +11,7 @@
   {% block stylesheets %}
     {# On charge le CSS de bootstrap depuis le site directement #}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/sofianquranapp/css/style.css') }}">
   {% endblock %}
   {% block javascripts %}
     {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
@@ -22,12 +23,11 @@
 <body>
   <div class="container">
     <div id="header" class="jumbotron">
-      <h1>titre 1</h1>
+      <h1>Quran App</h1>
       <p>
-        blablabla
+        Simple symfony 2 Quran application
       </p>
       <p>
-        image dzadfk
       </p>
     </div>
 
@@ -39,6 +39,7 @@
           <li><a href="{{ path('sofian_quran_app_quran_index') }}">Quran</a></li>
         </ul>
         </nav>
+        {{ render(controller('SofianQuranAppBundle:Default:sideBar')) }}
       </div>
       <div id="content" class="col-md-9">
         {% block body %}

@@ -2,23 +2,41 @@
 
 namespace Sofian\Bundle\QuranAppBundle\Controller;
 
+
 use Sofian\Bundle\QuranAppBundle\Entity\SuraRepository;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation\MessageSelector;
-use Symfony\Component\Translation\Loader\XliffFileLoader;
+use Sofian\Bundle\QuranAppBundle\Form\SuraSelectType;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Collections\ArrayCollection;
 use Sofian\Bundle\QuranAppBundle\Entity\Sura;
-use Sofian\Bundle\QuranAppBundle\Entity\LieuRevelation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller {
 
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction() {
 
         return $this->render('SofianQuranAppBundle:Default:index.html.twig');
     }
 
+    /**
+     * @param Request $r
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function sideBarAction(Request $r){
+
+        $em = $this->getDoctrine()->getManager();
+
+        /** @var SuraRepository $suraRepo */
+        $suraRepo = $em->getRepository('SofianQuranAppBundle:Sura');
+        $suras = $suraRepo->getSuras();
+
+        return $this->render('SofianQuranAppBundle:Default:suraSideMenu.html.twig', array(
+            'suras' => $suras
+        ));
+
+    }
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -76,6 +94,8 @@ class DefaultController extends Controller {
     }
 
     /**
+     * method to add data from array like data object eg translations,
+     * setting data as a service first then use it here
      * @return \Symfony\Component\HttpFoundation\Response
      */
    /** public function writeTranslitTitlesAction(){

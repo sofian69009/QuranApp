@@ -1,0 +1,17 @@
+{% block sidebarMenu %}
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle col-md-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Quick Surat view
+            <span class="caret"></span>
+        </button>
+        <ul id="dynmobile-sura-dropdown-menu" class="dropdown-menu col-md-12" aria-labelledby="surat">
+            {%  for surah in suras %}
+                <li>
+                    <a href="{{ path('sofian_quran_app_sura',{'suraId':surah.id}) }}">
+                        {{ surah.getListTitle }}
+                    </a>
+                </li>
+                {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
