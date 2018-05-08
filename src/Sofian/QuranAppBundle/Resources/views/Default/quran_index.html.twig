@@ -1,0 +1,27 @@
+{# app/Resourses/views/quran.html.twig #}
+{% extends "@SofianQuranApp/layout.html.twig" %}
+{% block body %}
+        <div>
+            <div>
+                <a class="btn btn-primary" href="{{ path('sofian_quran_app_quran_index') }}">Classement classique</a>
+                {{ knp_pagination_sortable(suras, 'Classement par ordre chronologique', 'ordreRevelation') }}
+            </div>
+            <br>
+            <nav class="navbar navbar-default">
+                <ul class="list-group">
+                {% for sura in suras %}
+                    
+                    <li id="sourate-{{sura.id}}" class="col-md-4 list-group-item">
+                        <span class="badge text-center">{{sura.id}}</span>
+                        <a href="{{ path('sofian_quran_app_sura',{'suraId':sura.id}) }}"><p class="h1 text-center">{{sura.titre}}</p>
+                            <p class="h7 text-center">{{sura.translitTitre}}</p></a>
+                {% endfor  %} 
+                </ul>
+            </nav>
+            {# display navigation #}
+            <div class="navigation">
+                {{ knp_pagination_render(suras) }}
+            </div>
+            <a class="btn btn-primary" href="{{ path('sofian_quran_app_homepage') }}">accueil</a>
+        </div>
+    {% endblock %}

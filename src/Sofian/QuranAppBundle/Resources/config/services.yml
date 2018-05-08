@@ -1,0 +1,6 @@
+services:
+    #sofian_quran_app.translit_titles:
+        #class: Sofian\QuranAppBundle\Services\Json\QuranMetaData
+#        arguments: [@service_id, "plain_value", %parameter%]
+    sofian_quran_app_lang_selector:
+        class:  QuranAppBundle\Services\LanguesToggle

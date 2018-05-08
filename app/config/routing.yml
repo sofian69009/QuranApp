@@ -1,4 +1,3 @@
 sofian_quran_app:
-    resource: "@SofianQuranAppBundle/Resources/config/routing.yml"
-    prefix:   /
-    
+    resource: "@SofianQuranAppBundle/Controller/"
+    type: annotation

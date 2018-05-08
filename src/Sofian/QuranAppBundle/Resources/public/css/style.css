@@ -1,0 +1,10 @@
+#dynmobile-sura-dropdown-menu{
+    max-height: 300px; /*Provide height in pixels or in other units as per your layout*/
+    overflow-y: auto; /*Provide an auto overflow to diaply scroll*/
+}
+.hadratech-verre{
+     background: rgba(0, 0, 0, 0.25) none repeat scroll 0 0;
+     border: 1px solid rgba(0, 0, 0, 0.5);
+     border-radius: 10px;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 1px rgba(255, 255, 255, 0.3) inset, 0 10px rgba(255, 255, 255, 0.1) inset, 0 10px 20px rgba(255, 255, 255, 0.3) inset, 0 -15px 30px rgba(0, 0, 0, 0.3) inset;
+ }
