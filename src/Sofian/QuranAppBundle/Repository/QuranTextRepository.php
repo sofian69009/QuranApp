@@ -1,6 +1,6 @@
 <?php
 
-namespace Sofian\QuranAppBundle\Entity;
+namespace Sofian\QuranAppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

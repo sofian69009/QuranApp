@@ -9,7 +9,7 @@ use Sofian\QuranAppBundle\Entity\QuranText;
 
 /**
  * Sura
- * @ORM\Entity(repositoryClass="Sofian\QuranAppBundle\Entity\SuraRepository")
+ * @ORM\Entity(repositoryClass="Sofian\QuranAppBundle\Repository\SuraRepository")
  * @ORM\Table(name="sura", indexes={@ORM\Index(name="FK_sura_lieu_revelation", columns={"lieu_revelation"})})
  */
 class Sura

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * QuranText
  *
  * @ORM\Table(name="quran_text", indexes={@ORM\Index(name="FK_quran_text_sura", columns={"sura"})})
- * @ORM\Entity(repositoryClass="Sofian\QuranAppBundle\Entity\QuranTextRepository")
+ * @ORM\Entity(repositoryClass="Sofian\QuranAppBundle\Repository\QuranTextRepository")
  */
 class QuranText // supl single quotes in column name if column name is sql reserved keyword (eg = index, count, ect)
 {

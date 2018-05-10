@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * LieuRevelation
  *
  * @ORM\Table(name="lieu_revelation")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Sofian\QuranAppBundle\Repository\LieuRevelationRepository")
  */
 class LieuRevelation
 {
