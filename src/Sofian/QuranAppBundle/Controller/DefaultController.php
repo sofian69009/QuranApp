@@ -3,7 +3,7 @@
 namespace Sofian\QuranAppBundle\Controller;
 
 
-use Sofian\QuranAppBundle\Entity\SuraRepository;
+use Sofian\QuranAppBundle\Repository\SuraRepository;
 use Sofian\QuranAppBundle\Form\SuraSelectType;
 use Symfony\Component\HttpFoundation\Request;
 use Sofian\QuranAppBundle\Entity\Sura;
